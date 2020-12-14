@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var noteViewModel: NoteViewModel
 
-
+//Menghubungkan dengan activity_main.xml
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+//Setting button add
         buttonAddNote.setOnClickListener {
             startActivityForResult(
                 Intent(this, AddEditNoteActivity::class.java),
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.setHasFixedSize(true)
-
+//menghubungkan dengan adapter
         val adapter = NoteAdapter()
         recycler_view.adapter = adapter
 
@@ -60,12 +60,13 @@ class MainActivity : AppCompatActivity() {
             ): Boolean {
                 return false
             }
-
+//Menghapus catatan
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.adapterPosition))
                 Toast.makeText(baseContext, "Catatan dihapus!", Toast.LENGTH_SHORT).show()
             }
         }
+        //Edit Note
         ).attachToRecyclerView(recycler_view)
         adapter.setOnItemClickListener(object : NoteAdapter.OnItemClickListener {
             override fun onItemClick(note: Note) {
@@ -78,12 +79,12 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
+//Menghubungkan dengan menu/main_menu.xml setting option
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
-
+//Setting hapus semua pada menu
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
             R.id.delete_all_notes -> {
@@ -96,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
+//setting update note berhasil atau gagal
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

@@ -2,7 +2,7 @@ package com.example.praktikum10.catatan
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+//deklarasi data
 @Entity(tableName = "note_table")
 data class Note(
     var title: String,

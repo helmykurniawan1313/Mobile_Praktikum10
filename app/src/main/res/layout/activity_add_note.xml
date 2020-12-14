@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-
+<!-- Membuat Text Field untuk mengisi Judul Note -->
     <EditText
         android:id="@+id/edit_text_title"
         android:layout_width="0dp"
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Membuat Text Field untuk mengisi Deskripsi Note -->
     <EditText
         android:id="@+id/edit_text_description"
         android:layout_width="0dp"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_title" />
-
+<!-- Text View Prioritas -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/number_picker_priority"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/number_picker_priority" />
-
+<!-- Membuat Number picker untuk skala prioritas -->
     <NumberPicker android:id="@+id/number_picker_priority"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
